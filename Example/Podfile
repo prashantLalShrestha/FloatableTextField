@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FloatableTextField_Example' do
+  pod 'FloatableTextField', :path => '../'
+
+  target 'FloatableTextField_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
