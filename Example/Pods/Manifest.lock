@@ -1,0 +1,16 @@
+PODS:
+  - FloatableTextField (0.1.0)
+
+DEPENDENCIES:
+  - FloatableTextField (from `../`)
+
+EXTERNAL SOURCES:
+  FloatableTextField:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FloatableTextField: 1c4bcfed7dbc566484fce05251f9ec3fa3c8e65a
+
+PODFILE CHECKSUM: fe8a97ab8d63cb938f799c22a5ff2bf0572d5620
+
+COCOAPODS: 1.4.0

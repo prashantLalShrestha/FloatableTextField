@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00BBDCD46B7440BA1A04977C /* FloatableTextField.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = FloatableTextField.podspec; path = ../FloatableTextField.podspec; sourceTree = "<group>"; };
+		00BBDCD46B7440BA1A04977C /* FloatableTextField.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FloatableTextField.podspec; path = ../FloatableTextField.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		111CC0163803BC9D4DFADB3D /* Pods-FloatableTextField_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloatableTextField_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FloatableTextField_Tests/Pods-FloatableTextField_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		15B86D6ABDF752735C516982 /* Pods_FloatableTextField_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FloatableTextField_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4389B0FE1D4F7D8593185B63 /* Pods-FloatableTextField_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloatableTextField_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FloatableTextField_Tests/Pods-FloatableTextField_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -42,11 +42,11 @@
 		607FACE51AFB9204008FA782 /* FloatableTextField_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloatableTextField_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		87B955F1AA54C39F094CCE25 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		87B955F1AA54C39F094CCE25 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		97113A0B7AE7DFBA9080ACE8 /* Pods-FloatableTextField_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloatableTextField_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-FloatableTextField_Example/Pods-FloatableTextField_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A13728A10F919DBF5AF8EC1D /* Pods_FloatableTextField_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FloatableTextField_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A384ECD90447B3139C216F73 /* Pods-FloatableTextField_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloatableTextField_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FloatableTextField_Example/Pods-FloatableTextField_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E65BE565EC48A0C8D8A4FC6A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E65BE565EC48A0C8D8A4FC6A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,10 +546,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4389B0FE1D4F7D8593185B63 /* Pods-FloatableTextField_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -567,10 +563,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 111CC0163803BC9D4DFADB3D /* Pods-FloatableTextField_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";

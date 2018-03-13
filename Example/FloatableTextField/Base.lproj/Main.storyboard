@@ -20,11 +20,86 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5Q-IR-kUz" customClass="FloatableTextField" customModule="FloatableTextField">
+                                <rect key="frame" x="20" y="40" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UZI-e2-CXz"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="defaultColor">
+                                        <color key="value" red="0.2078880712" green="0.2078880712" blue="0.2078880712" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successColor">
+                                        <color key="value" red="0.25827956200000002" green="0.55686098340000001" blue="0.2352242172" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="failedColor">
+                                        <color key="value" red="0.70918304310000002" green="0.26077102050000001" blue="0.212457545" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="headerImage" value="addUser"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="footerImage" value="defaultImage.png"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Am8-Zu-YWn">
+                                <rect key="frame" x="20" y="577" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eOR-kb-Mmr"/>
+                                </constraints>
+                                <state key="normal" title="Set Failure State"/>
+                                <connections>
+                                    <action selector="failureAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hPW-Fm-MTP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCq-SL-UA9">
+                                <rect key="frame" x="20" y="517" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rCr-3w-SOJ"/>
+                                </constraints>
+                                <state key="normal" title="Set Success State"/>
+                                <connections>
+                                    <action selector="successAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3zl-IJ-4EY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hU7-zw-rTn">
+                                <rect key="frame" x="20" y="457" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="T6d-qg-LiN"/>
+                                </constraints>
+                                <state key="normal" title="Set Default State"/>
+                                <connections>
+                                    <action selector="defaultAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3jv-hI-Ac4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hU7-zw-rTn" firstAttribute="leading" secondItem="JCq-SL-UA9" secondAttribute="leading" id="1MQ-tP-3g7"/>
+                            <constraint firstItem="X5Q-IR-kUz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="4Sp-wm-zXm"/>
+                            <constraint firstItem="Am8-Zu-YWn" firstAttribute="top" secondItem="JCq-SL-UA9" secondAttribute="bottom" constant="10" id="EMj-hf-mEK"/>
+                            <constraint firstItem="JCq-SL-UA9" firstAttribute="leading" secondItem="Am8-Zu-YWn" secondAttribute="leading" id="EYm-R1-2wr"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Am8-Zu-YWn" secondAttribute="bottom" constant="40" id="K4f-2u-QIh"/>
+                            <constraint firstAttribute="trailing" secondItem="Am8-Zu-YWn" secondAttribute="trailing" constant="20" id="LHq-z1-wUh"/>
+                            <constraint firstAttribute="trailing" secondItem="X5Q-IR-kUz" secondAttribute="trailing" constant="20" id="LfY-vc-q9z"/>
+                            <constraint firstItem="X5Q-IR-kUz" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="USR-so-6n8"/>
+                            <constraint firstItem="hU7-zw-rTn" firstAttribute="trailing" secondItem="JCq-SL-UA9" secondAttribute="trailing" id="WRH-xJ-Glu"/>
+                            <constraint firstItem="Am8-Zu-YWn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="YwE-nJ-gwY"/>
+                            <constraint firstItem="JCq-SL-UA9" firstAttribute="trailing" secondItem="Am8-Zu-YWn" secondAttribute="trailing" id="nNB-FQ-gEL"/>
+                            <constraint firstItem="JCq-SL-UA9" firstAttribute="top" secondItem="hU7-zw-rTn" secondAttribute="bottom" constant="10" id="r6w-Gs-qu2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="username" destination="X5Q-IR-kUz" id="xWR-DP-voA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="addUser" width="60" height="62"/>
+        <image name="defaultImage.png" width="96" height="96"/>
+    </resources>
 </document>
