@@ -73,6 +73,28 @@
                                     <action selector="defaultAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3jv-hI-Ac4"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Passcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Nq-s6-Q83" customClass="FloatableTextField" customModule="FloatableTextField">
+                                <rect key="frame" x="20" y="114" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5ZT-tn-cRh"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="defaultColor">
+                                        <color key="value" red="0.2078880712" green="0.2078880712" blue="0.2078880712" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="successColor">
+                                        <color key="value" red="0.25827956200000002" green="0.55686098340000001" blue="0.2352242172" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="failedColor">
+                                        <color key="value" red="0.70918304310000002" green="0.26077102050000001" blue="0.212457545" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="headerImage" value="addUser"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="footerImage" value="defaultImage.png"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -85,12 +107,16 @@
                             <constraint firstAttribute="trailing" secondItem="X5Q-IR-kUz" secondAttribute="trailing" constant="20" id="LfY-vc-q9z"/>
                             <constraint firstItem="X5Q-IR-kUz" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="USR-so-6n8"/>
                             <constraint firstItem="hU7-zw-rTn" firstAttribute="trailing" secondItem="JCq-SL-UA9" secondAttribute="trailing" id="WRH-xJ-Glu"/>
+                            <constraint firstItem="5Nq-s6-Q83" firstAttribute="leading" secondItem="X5Q-IR-kUz" secondAttribute="leading" id="WaU-K9-K0A"/>
                             <constraint firstItem="Am8-Zu-YWn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="YwE-nJ-gwY"/>
+                            <constraint firstItem="5Nq-s6-Q83" firstAttribute="top" secondItem="X5Q-IR-kUz" secondAttribute="bottom" constant="24" id="fDO-XU-Lm8"/>
                             <constraint firstItem="JCq-SL-UA9" firstAttribute="trailing" secondItem="Am8-Zu-YWn" secondAttribute="trailing" id="nNB-FQ-gEL"/>
                             <constraint firstItem="JCq-SL-UA9" firstAttribute="top" secondItem="hU7-zw-rTn" secondAttribute="bottom" constant="10" id="r6w-Gs-qu2"/>
+                            <constraint firstItem="5Nq-s6-Q83" firstAttribute="trailing" secondItem="X5Q-IR-kUz" secondAttribute="trailing" id="s9C-Hj-ooh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="passcode" destination="5Nq-s6-Q83" id="Xvx-CV-CR6"/>
                         <outlet property="username" destination="X5Q-IR-kUz" id="xWR-DP-voA"/>
                     </connections>
                 </viewController>

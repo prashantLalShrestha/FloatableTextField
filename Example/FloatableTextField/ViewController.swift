@@ -9,14 +9,33 @@
 import UIKit
 import FloatableTextField
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FloatableTextFieldDelegate {
 
     @IBOutlet weak var username: FloatableTextField!
+    @IBOutlet weak var passcode: FloatableTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        username.floatableDelegate = self
+        passcode.floatableDelegate = self
+        
+        username.returnKeyType = .next
+        passcode.returnKeyType = .done
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKey))
         self.view.addGestureRecognizer(tap)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == username {
+            username.resignFirstResponder()
+            passcode.becomeFirstResponder()
+        } else if textField == passcode {
+            passcode.resignFirstResponder()
+            self.dismissKey()
+        }
+        return true
     }
     
     @objc func dismissKey() {
@@ -29,13 +48,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func defaultAction(_ sender: Any) {
-        username.setState(.DEFAULT, with: "Default State Message")
+        username.setState(.DEFAULT, with: "Default State Username Message")
+        passcode.setState(.DEFAULT, with: "Default State Passcode Message")
     }
     @IBAction func successAction(_ sender: Any) {
         username.setState(.SUCCESS, with: "Success State Message")
+        passcode.setState(.SUCCESS, with: "Success State Passcode Message")
     }
     @IBAction func failureAction(_ sender: Any) {
         username.setState(.FAILED, with: "Failure State Message")
+        passcode.setState(.FAILED, with: "Failure State Passcode Message")
     }
     
 }

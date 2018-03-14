@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol FloatableTextFieldDelegate {
+@objc public protocol FloatableTextFieldDelegate {
     @objc optional func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
     @objc optional func textFieldDidBeginEditing(_ textField: UITextField)
     @objc optional func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
@@ -19,7 +19,7 @@ import UIKit
 }
 
 @IBDesignable public class FloatableTextField: UITextField {
-    var floatableDelegate: FloatableTextFieldDelegate?
+    public var floatableDelegate: FloatableTextFieldDelegate?
     
     public enum State {
         case SUCCESS, FAILED, DEFAULT
@@ -307,7 +307,7 @@ extension FloatableTextField {
     
     private func getImageFromBundle(name: String) -> UIImage {
         let podBundle = Bundle(for: FloatableTextField.self)
-        if let url = podBundle.url(forResource: "FloatTextField", withExtension: "bundle") {
+        if let url = podBundle.url(forResource: "FloatableTextField", withExtension: "bundle") {
             let bundle = Bundle(url: url)
             return UIImage(named: name, in: bundle, compatibleWith: nil)!
         }
