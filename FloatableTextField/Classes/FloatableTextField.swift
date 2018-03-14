@@ -73,7 +73,7 @@ import UIKit
     
     var overlayView = UIView(frame: .zero)
     
-    var currentState: State = .DEFAULT {
+    public var currentState: State = .DEFAULT {
         didSet {
             switch currentState {
             case .DEFAULT:
