@@ -129,6 +129,9 @@ extension FloatableTextField {
         super.drawText(in: rect)
         if let _ = placeholder, let textString = text, !textString.isEmpty {
             drawPlaceholder(in: rect)
+            if textString != "" {
+                liftUpPlaceholder()
+            }
         }
     }
     
