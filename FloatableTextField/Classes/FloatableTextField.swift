@@ -18,8 +18,8 @@ import UIKit
     @objc optional func textFieldDidEndEditing(_ textField: UITextField)
 }
 
-@IBDesignable public class FloatableTextField: UITextField {
-    public var floatableDelegate: FloatableTextFieldDelegate?
+@IBDesignable open class FloatableTextField: UITextField {
+    open var floatableDelegate: FloatableTextFieldDelegate?
     
     public enum State {
         case SUCCESS, FAILED, DEFAULT
@@ -46,7 +46,7 @@ import UIKit
             footerImageButton.setBackgroundImage(footerImage, for: .normal)
         }
     }
-    var onStateButtonClick: ((FloatableTextField) -> ())?
+    open var onStateButtonClick: ((FloatableTextField) -> ())?
     var footerImageHeight: CGFloat = 0.0
     
     var placeholderLabel = UILabel(frame: .zero)
@@ -67,13 +67,13 @@ import UIKit
     }
     
     var footerActionButton = UIButton(frame: .zero)
-    var onDropdownClick: ((FloatableTextField) -> ())?
+    open var onDropdownClick: ((FloatableTextField) -> ())?
     @IBInspectable var isDropdownEnabled: Bool = false
     var dropdownHeight: CGFloat = 0.0
     
     var overlayView = UIView(frame: .zero)
     
-    public var currentState: State = .DEFAULT {
+    open var currentState: State = .DEFAULT {
         didSet {
             switch currentState {
             case .DEFAULT:
@@ -92,13 +92,12 @@ import UIKit
                 underlineView.backgroundColor = failedColor
                 errorLabel.textColor = failedColor
             }
-            self.layoutIfNeeded()
         }
     }
     
     var edges = UIEdgeInsets()
     
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         headerImageHeight = (self.frame.height < 60) ? self.frame.height * 0.55 : 50
         footerImageHeight = (self.frame.height < 60) ? self.frame.height * 0.85 : 55
@@ -110,7 +109,7 @@ import UIKit
 
 // MARK: - Drawings
 extension FloatableTextField {
-    override public func draw(_ rect: CGRect) {
+    override open func draw(_ rect: CGRect) {
         super.draw(rect)
         drawUnderline()
         if headerImage != nil {
@@ -125,7 +124,7 @@ extension FloatableTextField {
         drawErrorLabel()
     }
     
-    override public func drawText(in rect: CGRect) {
+    override open func drawText(in rect: CGRect) {
         super.drawText(in: rect)
         if let _ = placeholder, let textString = text, !textString.isEmpty {
             drawPlaceholder(in: rect)
@@ -135,7 +134,7 @@ extension FloatableTextField {
         }
     }
     
-    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
         edges.top = 4.0 + (font?.pointSize)!
         edges.bottom = 4.0
         edges.left = (headerImage != nil) ? headerImageHeight + 9.0 : 9.0
@@ -151,7 +150,7 @@ extension FloatableTextField {
         return UIEdgeInsetsInsetRect(bounds, edges)
     }
     
-    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, edges)
     }
     
@@ -162,11 +161,11 @@ extension FloatableTextField {
         let leadingConstraint = NSLayoutConstraint(item: underlineView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0.0)
         underlineRightConstraint = NSLayoutConstraint(item: underlineView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0.0)
         let bottomConstraint = NSLayoutConstraint(item: underlineView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0.0)
-        let underLineHeight = NSLayoutConstraint(item: underlineView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 2.0)
+        let underLineHeight = NSLayoutConstraint(item: underlineView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1.0)
         NSLayoutConstraint.activate([leadingConstraint, underlineRightConstraint!, bottomConstraint, underLineHeight])
     }
     
-    override public func drawPlaceholder(in rect: CGRect) {
+    override open func drawPlaceholder(in rect: CGRect) {
         super.drawPlaceholder(in: rect)
         guard let font = font else { return }
         placeholderLabel.font = UIFont(name: font.fontName, size: font.pointSize)
@@ -301,7 +300,7 @@ extension FloatableTextField {
         }
     }
     
-    public func setState(_ state: State, with message: String = "") {
+    open func setState(_ state: State, with message: String = "") {
         animateFooterImage {
             self.currentState = state
         }
@@ -320,34 +319,34 @@ extension FloatableTextField {
 
 // MARK: - UITextFieldDelegate
 extension FloatableTextField: UITextFieldDelegate {
-    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return floatableDelegate?.textFieldShouldBeginEditing?(textField) ?? true
     }
     
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
+    open func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField.text?.isEmpty)! {
             liftUpPlaceholder()
         }
         floatableDelegate?.textFieldDidBeginEditing?(textField)
     }
     
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return floatableDelegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) ?? true
     }
     
-    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
+    open func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return floatableDelegate?.textFieldShouldClear?(textField) ?? true
     }
     
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return floatableDelegate?.textFieldShouldReturn?(textField) ?? true
     }
     
-    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    open func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return floatableDelegate?.textFieldShouldEndEditing?(textField) ?? true
     }
     
-    public func textFieldDidEndEditing(_ textField: UITextField) {
+    open func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.text?.isEmpty)! {
             liftDownPlaceholder()
         }
@@ -392,11 +391,9 @@ extension FloatableTextField {
         UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: {
             self.errorLabel.frame.size.height = (self.font?.pointSize)! * 0.75
             self.errorLabelHeightConstraint?.constant = (self.font?.pointSize)! * 0.75
-            self.layoutIfNeeded()
         }, completion: { _ in
             UIView.animate(withDuration: 5.0, delay: 5.0, options: [.curveEaseIn], animations: {
                 self.errorLabel.alpha = 0.0
-                self.layoutIfNeeded()
             }, completion: nil)
         })
     }
@@ -407,7 +404,6 @@ extension FloatableTextField {
         UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseInOut], animations: {
             self.underlineView.frame.size.width = self.frame.width
             self.underlineRightConstraint?.constant = 0.0
-            self.layoutIfNeeded()
         }, completion: { _ in
             completion()
         })
