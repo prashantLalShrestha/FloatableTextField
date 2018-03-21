@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/FloatableTextField.svg?style=flat)](http://cocoapods.org/pods/FloatableTextField)
 [![License](https://img.shields.io/cocoapods/l/FloatableTextField.svg?style=flat)](http://cocoapods.org/pods/FloatableTextField)
 [![Platform](https://img.shields.io/cocoapods/p/FloatableTextField.svg?style=flat)](http://cocoapods.org/pods/FloatableTextField)
+[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
 
 ## Example
 
@@ -14,6 +15,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 Swift version 4.0+
+
 Xcode 9.0+
 
 ## Installation
@@ -43,6 +45,9 @@ FloatableTextFieldDelegate is similar as UITextFieldDelegate.
 floatTextField.floatableDelegate = self
 ```
 
+### Set State Icon
+In order to enable the state icon, add the Footer Image as defaultImage.png in yout Attribute Inspector.
+
 ### Set State message
 ```ruby
 func setState(_ state: State, with message: String = "")
@@ -51,6 +56,22 @@ func setState(_ state: State, with message: String = "")
 For Default Message
 ```ruby
 floatTextField.setState(.DEFAULT, with: "Default State Message")
+```
+
+### Enable State Button Action
+You can configure state button action to display your own info or popups.
+```ruby
+floatTextField.onStateButtonClick = {
+// Action
+}
+```
+
+### Enable DropDown
+To enable DropDown you jst have to set the Is DropDown Enbaled to Yes in your attribute inspector And configure the dropDown Action as following in your view controller
+```ruby
+floatTextField.onDropdownClick = {
+    // Action
+}
 ```
 
 ## Author

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - FloatableTextFieldDelegate
 @objc public protocol FloatableTextFieldDelegate {
     @objc optional func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
     @objc optional func textFieldDidBeginEditing(_ textField: UITextField)
@@ -18,6 +19,7 @@ import UIKit
     @objc optional func textFieldDidEndEditing(_ textField: UITextField)
 }
 
+// MARK: - FloatableTextField Class
 @IBDesignable open class FloatableTextField: UITextField {
     open var floatableDelegate: FloatableTextFieldDelegate?
     
@@ -104,6 +106,14 @@ import UIKit
         dropdownHeight = (self.frame.height < 60) ? self.frame.height * 0.45 : 30
         self.delegate = self
         self.setState(.DEFAULT)
+    }
+    
+    override open var text: String? {
+        didSet {
+            if text != nil || text != "" {
+                self.liftUpPlaceholder()
+            }
+        }
     }
 }
 

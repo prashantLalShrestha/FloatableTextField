@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FloatableTextField'
-  s.version          = '1.0'
+  s.version          = '1.0.1'
   s.swift_version    = '4.0'
   s.summary          = 'A beautiful Custom TextField designed for forms and login in iOS Apps.'
 
